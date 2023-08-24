@@ -39,3 +39,6 @@ El estado final es:
 - _cantidadDeRuedas: 2
 - kmsRecorridos: 10
 ---
+
+## Ejercicio 3
+[Proyecto java](./Java/)
