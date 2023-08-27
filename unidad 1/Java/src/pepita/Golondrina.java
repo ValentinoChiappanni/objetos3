@@ -1,28 +1,28 @@
 package pepita;
 
-public class Golondrina implements Ave{
- private int energia = 2; 
+import java.util.Random;
 
-@Override
-public void volar(int kilometros) {
-	if (energia <= 0) {
-	// Lanzar exepcion
-	} else {
-		energia = Math.max(0, energia - kilometros*3);
+class Golondrina extends Ave {
+    public Golondrina(String nombre) {
+        super(nombre);
+    }
+
+    public void pescar() {
+        Random random = new Random();
+        int probabilidad = random.nextInt(10); // Genera un número entre 0 y 9
+
+        if (probabilidad == 0) {
+            Logger.showInfo(getNombre() + " intenta pescar.");
+            if (getEnergia() >= 2) {
+                setEnergia(getEnergia() - 2); // Gasta energía al pescar
+                distanciaRecorrida++; // Incrementa la distancia
+                comer(10); // Aumenta la energía al atrapar un pez
+            } else {
+                Logger.showError(getNombre() + " no tiene suficiente energía para pescar.");
+            }
+        } else {
+            distanciaRecorrida++; // Incrementa la distancia aunque no haya pescado
+        }
+    }
+
 	}
-	
-}
-
-@Override
-public void comer(int gramos) {
-	energia += gramos;
-}
-
-public int energiaTotal() {
-	return energia;
-}
- 
- 
-
-
-}
