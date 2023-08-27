@@ -29,20 +29,70 @@ es de tipo “A”, “b” es de tipo “B”, “c” de tipo “C” y “d�
 - C es subtipo de A
 - D es subtipo de C
 
-Luego, indique cuáles de estas asignaciones son válidas y cuáles no.
+Luego, indique cuáles de estas asignaciones son válidas y cuáles no:
 - a. var x : A := a
+
+Válida: Se asigna un valor de tipo "A" a una variable de tipo "A".
 - b. var x : B := a
+
+No válida: No se puede asignar un valor de tipo "A" a una variable de tipo "B" sin una conversión explícita.
 - c. var x : C := a
+
+No válida: No se puede asignar un valor de tipo "A" a una variable de tipo "C" sin una conversión explícita.
 - d. var x : D := a
+
+No válida: No se puede asignar un valor de tipo "A" a una variable de tipo "D" sin una conversión explícita.
 - e. var x : A := b
+
+Válida: Se asigna un valor de tipo "B" a una variable de tipo "A" debido a la relación de subtipado (B es subtipo de A).
 - f. var x : B := b
+
+Válida: Se asigna un valor de tipo "B" a una variable de tipo "B".
 - g. var x : C := b
+
+No válida: No se puede asignar un valor de tipo "B" a una variable de tipo "C" sin una conversión explícita.
 - h. var x : D := b
+
+No válida: No se puede asignar un valor de tipo "B" a una  variable de tipo "D" sin una conversión explícita.
 - i. var x : A := c
+
+Válida: Se asigna un valor de tipo "C" a una variable de tipo "A" debido a la relación de subtipado (C es subtipo de A).
 - j. var x : B := c
+
+Válida: Se asigna un valor de tipo "C" a una variable de tipo "B" debido a la relación de subtipado (C es subtipo de A, y B es subtipo de A).
 - k. var x : C := c
+
+Válida: Se asigna un valor de tipo "C" a una variable de tipo "C".
 - l. var x : D := c
+
+No válida: No se puede asignar un valor de tipo "C" a una variable de tipo "D" sin una conversión explícita.
 - m. var x : A := d
+
+No válida: No se puede asignar un valor de tipo "D" a una  variable de tipo "A" sin una conversión explícita.
 - n. var x : B := d
+ 
+ No válida: No se puede asignar un valor de tipo "D" a una variable de tipo "B" sin una conversión explícita.
 - o. var x : C := d
+ 
+No válida: No se puede asignar un valor de tipo "D" a una variable de tipo "C" sin una conversión explícita.
 - p. var x : D := d
+ 
+Válida: Se asigna un valor de tipo "D" a una variable de tipo "D".
+
+## Ejercicio  5
+
+- Parking[Thing]:
+
+No es una instancia válida. El tipo Thing no está en el rango [Bicycle, Vehicle]
+- Parking[Car]:
+
+Sí es una instancia válida. El tipo Car está dentro del rango [Bicycle, Vehicle].
+- Parking[Vehicle]:
+
+Sí es una instancia válida. El tipo Vehicle está dentro del rango [Bicycle, Vehicle].
+- Parking[Bicycle]:
+
+ Sí es una instancia válida. El tipo Bicycle está dentro del rango [Bicycle, Vehicle].
+- Parking[Tricycle]:
+
+No es una instancia válida. Aunque Tricycle es una subclase de Bicycle, no cumple con la restricción A <: Vehicle, ya que Tricycle no es una subclase directa de Vehicle.

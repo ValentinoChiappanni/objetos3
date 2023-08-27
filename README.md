@@ -4,4 +4,4 @@ El repositorio se encuentra organizado por unidades, cada unidad tiene su activi
 
 [Unidad 1 (Pendiente 3 y 4)](./unidad%201/resolucion.md)
 
-[Unidad 2 (Pendiente 4 y 5)](./unidad%202/Resolucion.md)
+[Unidad 2 (Pendiente 1)](./unidad%202/Resolucion.md)
