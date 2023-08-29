@@ -1,22 +1,21 @@
 package pepita;
 
-class Mariposa {
-    private int distanciaRecorrida;
+public class Mariposa extends Ave{
+	public Mariposa(String nombre, Logger logger) {
+		super(nombre, logger);
+	}
 
-    public Mariposa() {
-        this.distanciaRecorrida = 0;
-    }
+	int alimentoConsumido = 0;
+	@Override
+	public void volar(int kilometros) {
+		this.sumarKilometrosVolados(kilometros);;
+		
+	}
 
-    public int getDistanciaRecorrida() {
-        return distanciaRecorrida;
-    }
+	@Override
+	public void comer(int gramos) {
+		alimentoConsumido += gramos * 5;
+		
+	}
 
-    public void comer(int gramosComida) {
-        Logger.showInfo("Twinkle come " + gramosComida + " gramos de comida.");
-    }
-
-    public void volar(int kilometros) {
-        Logger.showInfo("Twinkle vuela " + kilometros + " kilómetros.");
-        distanciaRecorrida += kilometros;
-    }
 }

@@ -2,37 +2,39 @@ package pepita;
 
 public class Logger {
     private static Logger instance;
-    private int logLevel = 0; // Nivel de registro predeterminado: INFO
+    private LogLevel logLevel;
 
-    private Logger() {
-        // Constructor privado para evitar la creación de instancias externas.
+    public enum LogLevel {
+        INFO, WARN, ERROR
     }
 
-    public static Logger getInstance() {
+   
+    Logger(LogLevel logLevel) {
+        this.logLevel = logLevel;
+    }
+
+   
+    public static Logger getInstance(LogLevel logLevel) {
         if (instance == null) {
-            instance = new Logger();
+            instance = new Logger(logLevel);
         }
         return instance;
     }
 
-    public void setLogLevel(int level) {
-        this.logLevel = level;
-    }
-
-    public static void showInfo(String message) {
-        if (instance.logLevel <= 0) {
+    public void showInfo(String message) {
+        if (logLevel == LogLevel.INFO ) {
             System.out.println("INFO: " + message);
         }
     }
 
-    public static void showWarn(String message) {
-        if (instance.logLevel <= 1) {
+    public void showWarn(String message) {
+        if (logLevel == LogLevel.WARN ) {
             System.out.println("WARN: " + message);
         }
     }
 
-    public static void showError(String message) {
-        if (instance.logLevel <= 2) {
+    public void showError(String message) {
+        if (logLevel == LogLevel.ERROR) {
             System.out.println("ERROR: " + message);
         }
     }

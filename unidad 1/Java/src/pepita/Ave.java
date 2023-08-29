@@ -1,34 +1,61 @@
 package pepita;
 
-class Ave {
-    private String nombre;
-    protected int distanciaRecorrida;
-    private int energia;
 
-    public Ave(String nombre) {
-        this.nombre = nombre;
-        this.distanciaRecorrida = 0;
-    }
 
-    public int getDistanciaRecorrida() {
-        return distanciaRecorrida;
-    }
-
-    public void comer(int gramosComida) {
-        Logger.showInfo(nombre + " come " + gramosComida + " gramos de comida.");
-    }
-
-    public void volar(int kilometros) {
-        Logger.showInfo(nombre + " vuela " + kilometros + " kilómetros.");
-        distanciaRecorrida += kilometros;
-    }
-    public void setEnergia(int valor) {
-		energia = valor;
+public class Ave implements AnimalVolador {
+	private int energia = 2; //Siempre inicia con 2
+	private int kilometrosVolados = 0;
+	 protected Logger logger;
+	protected String nombre;
+	 
+	 public Ave(String nombre, Logger logger) {
+	        this.nombre = nombre;
+	        this.energia = 2;
+	        this.logger = logger;
+	    }
+	
+	@Override
+	public void volar(int kilometros) {
+		if (this.energiaEsSuficiente(kilometros*3)) {
+			this.restarEnergia(kilometros * 3);
+			this.sumarKilometrosVolados(kilometros);
+			logger.showInfo(nombre + " volo "+ kilometros + " kilometros.");
+		} else {
+			 logger.showError(nombre + " no tiene suficiente energía para volar " + kilometros + " kilómetros.");
+	            throw new RuntimeException(nombre + " no tiene suficiente energía para volar.");
+		}
 	}
-    public int getEnergia() {
-		return energia;
+
+	@Override
+	public void comer(int gramos) {
+		this.sumarEnergia(gramos);
+		logger.showInfo(nombre + " comio "+ gramos + " de comida");
+		
 	}
-    public String getNombre() {
-    	return nombre;
-    }
+	
+	public void sumarEnergia(int energiaASumar) {
+		energia += energiaASumar;
+		logger.showInfo(nombre + " sumo "+ energiaASumar + " de energia.");
+	}
+	
+	public void restarEnergia(int energiaARestar) {
+		energia -= energiaARestar;
+		logger.showInfo(nombre + " resto "+ energiaARestar + " de energia.");
+	}
+	public void sumarKilometrosVolados(int sumarKilometro) {
+		kilometrosVolados += sumarKilometro;
+	}
+
+	public boolean energiaEsSuficiente(int kilometros) {
+		return kilometros  <= energia;
+	}
+	
+	public void energiaTotal() {	
+		logger.showInfo(nombre + " tiene " + energia + " de energia.");
+	}
+	public void distanciaRecorrida() {	
+		logger.showInfo(nombre + " recorrio " + kilometrosVolados + " kilometros.");
+	}
+	
+	
 }
