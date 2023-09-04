@@ -9,6 +9,8 @@ Objective-C es un lenguaje tipado de forma débil y dinámica. Esto significa qu
 ---
 - Identificación de los tipos:
 En Objective-C, los tipos de objetos son identificados mediante el uso de punteros a objetos precedidos por el símbolo ```*```.
+
+Los tipos son explicitos y nominal.
 ## Ejercicio 2
 - Momento de la verificación:
 Ruby realiza la verificación de tipos en tiempo de ejecución. Esto significa que los errores de tipo, como llamar a un método que no existe en un objeto o realizar operaciones no válidas en un tipo de datos, se detectan cuando se ejecuta el programa.
@@ -18,6 +20,8 @@ Ruby es un lenguaje de tipado dinámico, lo que significa que no es necesario de
 ---
 - Identificación de los tipos:
 En Ruby, los tipos de datos se determinan dinámicamente en tiempo de ejecución. Esto significa que el tipo de un objeto se conoce cuando se crea o se le asigna un valor. Ruby utiliza la reflexión y la introspección para identificar los tipos de objetos y determinar si los métodos y propiedades son aplicables a esos objetos.
+---
+La declaratividad de tipos es implicita y dinamico. Es estructural.
 ---
 
 ## Ejecicio 3
@@ -29,6 +33,10 @@ Scala es conocido por su sistema de tipos expresivo y flexible. Permite declarar
 ---
 - Identificación de los tipos:
 En Scala, los tipos son explícitos y se declaran en las definiciones de clases, objetos y métodos. El compilador de Scala utiliza inferencia de tipos para deducir automáticamente los tipos en muchos casos, lo que reduce la necesidad de especificar tipos de manera redundante. 
+
+---
+Es un lenguaje compilado. Es exlpicito y implicito. Es estructural. Es nomial tambien.
+---
 
 ## Ejercicio 4
 Considere los tipos “A”, “B”, “C” y “D”, y que existen los valores “a”, “b”, “c” y “d”, donde “a”
